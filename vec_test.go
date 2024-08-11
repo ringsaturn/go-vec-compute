@@ -65,7 +65,7 @@ func benchmarkApparentTemperature(b *testing.B, l int) {
 	for i := 0; i < b.N; i++ {
 		func() {
 			apparentTempBuilder := array.NewFloat64Builder(pool)
-			defer apparentTempBuilder.Release()
+			// defer apparentTempBuilder.Release()
 			for i := 0; i < int(tbl.Record.NumRows()); i++ {
 				temp := tbl.Record.Column(0).(*array.Float64).Value(i)
 				humidity := tbl.Record.Column(1).(*array.Float64).Value(i)
@@ -77,8 +77,8 @@ func benchmarkApparentTemperature(b *testing.B, l int) {
 				apparentTempBuilder.Append(apparentTemp)
 			}
 
-			apparentTempArray := apparentTempBuilder.NewArray()
-			defer apparentTempArray.Release()
+			// apparentTempArray := apparentTempBuilder.NewArray()
+			// defer apparentTempArray.Release()
 		}()
 	}
 }
