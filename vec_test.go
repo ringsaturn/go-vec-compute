@@ -83,7 +83,7 @@ func benchmarkApparentTemperature(b *testing.B, l int) {
 	}
 }
 
-func BenchmarkApparentTemperature_Arrow(b *testing.B) {
+func BenchmarkApparentTemperature_GoIterArrowRecords(b *testing.B) {
 	for _, hours := range []int{10, 120, 384, 480} {
 		b.Run(fmt.Sprintf("%v hours", hours), func(b *testing.B) {
 			benchmarkApparentTemperature(b, hours)

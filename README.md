@@ -2,15 +2,19 @@
 goos: darwin
 goarch: arm64
 pkg: github.com/ringsaturn/go-vec-compute
-BenchmarkApparentTemperature_Go/10_hours-16         	11637430	       100.1 ns/op	       0 B/op	       0 allocs/op
-BenchmarkApparentTemperature_Go/120_hours-16        	 1000000	      1178 ns/op	       0 B/op	       0 allocs/op
-BenchmarkApparentTemperature_Go/384_hours-16        	  325849	      3762 ns/op	       0 B/op	       0 allocs/op
-BenchmarkApparentTemperature_Go/480_hours-16        	  257200	      4689 ns/op	       0 B/op	       0 allocs/op
-BenchmarkApparentTemperature_Arrow/10_hours-16      	 2426258	       493.1 ns/op	     976 B/op	       9 allocs/op
-BenchmarkApparentTemperature_Arrow/120_hours-16     	  366506	      3223 ns/op	    2704 B/op	      11 allocs/op
-BenchmarkApparentTemperature_Arrow/384_hours-16     	  122948	      9811 ns/op	    9872 B/op	      13 allocs/op
-BenchmarkApparentTemperature_Arrow/480_hours-16     	   98649	     12058 ns/op	    9872 B/op	      13 allocs/op
+BenchmarkApparentTemperature_PureGo/10_hours-16         11278897                92.82 ns/op
+BenchmarkApparentTemperature_PureGo/120_hours-16         1000000              1085 ns/op
+BenchmarkApparentTemperature_PureGo/384_hours-16          342058              3478 ns/op
+BenchmarkApparentTemperature_PureGo/480_hours-16          273854              4339 ns/op
+BenchmarkApparentTemperature_GoIterArrowRecords/10_hours-16              2488632               480.3 ns/op
+BenchmarkApparentTemperature_GoIterArrowRecords/120_hours-16              369253              3131 ns/op
+BenchmarkApparentTemperature_GoIterArrowRecords/384_hours-16              126391              9425 ns/op
+BenchmarkApparentTemperature_GoIterArrowRecords/480_hours-16              102184             11534 ns/op
 PASS
-coverage: 100.0% of statements
-ok  	github.com/ringsaturn/go-vec-compute	10.934s
+ok      github.com/ringsaturn/go-vec-compute    11.015s
 ```
+
+| Benchmark Hours       | 10 hours | 120 hours | 384 hours | 480 hours |
+| --------------------- | -------- | --------- | --------- | --------- |
+| Pure Go               | 92.82 ns | 1085 ns   | 3478 ns   | 4339 ns   |
+| Go Iter Arrow Records | 480.3 ns | 3131 ns   | 9425 ns   | 11534 ns  |

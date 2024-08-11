@@ -31,7 +31,7 @@ func benchmarkApparentTemperature_Go(b *testing.B, l int) {
 	}
 }
 
-func BenchmarkApparentTemperature_Go(b *testing.B) {
+func BenchmarkApparentTemperature_PureGo(b *testing.B) {
 	for _, hours := range []int{10, 120, 384, 480} {
 		b.Run(fmt.Sprintf("%v hours", hours), func(b *testing.B) {
 			benchmarkApparentTemperature_Go(b, hours)
